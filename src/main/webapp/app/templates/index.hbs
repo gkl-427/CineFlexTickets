@@ -1,0 +1,28 @@
+<div class="image">
+    <input type="checkbox" id="check">
+    <header>
+        <label for="check">         
+        </label>
+        <div class="left_area">
+        </div>
+        <div class="right_area">
+            <div class="left_area">
+                <h3 style="margin-left:48%">MOVIESNOW<span></span></h3>
+            </div>
+            <div class="right_area">
+                {{#unless isAuthenticate}}
+                <a href="/ticket-app/signup" class="logout_btn" style="padding: 6px 20px"> SIGNUP</a>
+                <a href="/ticket-app/login" class="logout_btn" style="padding: 6px 20px"> LOGIN</a>
+                {{else}}
+
+                <a href="/ticket-app/dashboard" class="logout_btn" style="padding: 6px 20px"> DASHBOARD</a>
+                {{/unless}}
+                <a href="/ticket-app/movies" class="logout_btn" style="padding: 6px 20px"> MOVIES</a>
+            </div>
+        </div>
+    </header>
+    <h4 style="text-align:center;margin-top:30%;color:rgb(142, 112, 252);font-family:'Courier New', Courier, monospace;font-size:x-large">
+        "Where Every Frame Tells a Story: Dive into the Magic of Cinema!"
+    </h4>
+</div>
+{{outlet}}

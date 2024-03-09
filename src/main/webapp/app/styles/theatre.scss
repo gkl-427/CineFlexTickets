@@ -1,0 +1,36 @@
+.theatre-box {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  height: 300px;
+  width: 300px;
+  font-family: 'Courier New', Courier, monospace;
+
+  h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  li {
+    font-size: 16px;
+  }
+
+}
+
+.theatre-box:hover {
+  background-color: rgb(231, 231, 231);
+  transition: transform 0.3 ease;
+  transform: scale(1.1);
+}
+
+.theatre-box {
+  display: inline-block;
+}
