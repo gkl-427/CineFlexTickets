@@ -1,0 +1,5 @@
+<Context>
+    <Valve className="org.apache.catalina.valves.AccessLogValve" directory=""
+    prefix="ticket_app_log" suffix=".txt"
+    pattern="%h %l %u %t &quot;%r&quot; %s %b %{i,Referer}i %{i,User-Agent}i %D %{X-Error}o"/>    
+</Context>
