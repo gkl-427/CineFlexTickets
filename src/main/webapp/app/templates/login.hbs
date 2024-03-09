@@ -1,0 +1,41 @@
+<div>
+    <header>
+        <label for="check">
+        </label>
+        <div class="left_area">
+        </div>
+        <div class="right_area">
+            <div class="left_area">
+                <h3 style="margin-left:48%;">MOVIESNOW<span></span></h3>
+            </div>
+            <div class="right_area">
+                <a href="/ticket-app/movies" class="logout_btn" style="padding: 6px 20px"> BOOK MOVIES</a>
+                <a href="/ticket-app/" class="logout_btn" style="padding: 6px 20px"> HOME</a>
+            </div>
+        </div>
+    </header>
+</div>
+<div class="centre" style="margin-top:200px;">
+<form autocomplete="off" {{action 'sendRecord' on='submit'}}>
+    <div class="form-field-group">
+        <label for="mobilenumber">MOBILE NUMBER</label>
+        <div class="form-field-values">
+          {{input id="mobilenumber" type="text" value=mobilenumber }}
+        </div>
+    </div>
+    <div class="form-field-group">
+        <label for="password">PASSWORD</label>
+        <div class="form-field-values">
+          {{input id="password" type="password" value=password}}
+        </div>
+    </div>
+    <br>
+    <button class="button">LOGIN</button>
+    {{#if errorMessage}}
+    <p class="error-message" style="font-family: 'Courier New', Courier, monospace;color:red; margin-bottom: 25px; margin-top:10%;margin-left:12%">{{errorMessage}}</p>
+    {{/if}}
+</form>
+<p style="font-family:'Courier New', Courier, monospace;margin-top:40px;">NEW USER  ? <a style="text-decoration:none"
+        href="signup">SIGNUP</a></p>
+</div>
+{{outlet}}

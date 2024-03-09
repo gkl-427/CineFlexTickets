@@ -1,0 +1,55 @@
+{{#if isAdmin}}
+
+<div class="content">
+  <div class="search-container">
+    {{input
+    type="text"
+    value=searchQuery
+    class="search-input"
+    placeholder="Search Users by name"
+    key-up=(action "searchCustomers")
+    }}
+  </div>
+  {{!-- <input type="text" value={{query}} {{action (mut query) value="target.value" }} class="fas fa-search"
+    placeholder="Search" style="font-family: 'Courier New', Courier, monospace;margin-left:100%;margin-top:2%"> --}}
+  <table style="margin-top:5%;margin-left:80px;">
+    <thead>
+      <tr>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
+        <th>MOBILE NUMBER</th>
+        <th>ADDRESS</th>
+        <th>ROLE</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if isUserAvailable}}
+      {{#each model as |user|}}
+      <tr>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.mobilenumber}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.role}}</td>
+      </tr>
+      {{/each}}
+      {{else}}
+      {{#each filteredData as |user|}}
+      <tr>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.mobilenumber}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.role}}</td>
+      </tr>
+      {{/each}}
+      {{/if}}
+    </tbody>
+  </table>
+</div>
+{{else}}
+<li class="dashboard-not-found"> OOPS! SOMETHING WENT WRONG</li>
+<li class="header-list" style="font-family: 'Courier New', Courier, monospace;margin-top:10%;margin-left:52%">{{#link-to
+  'application' class="no-underline"}}GO HOME{{/link-to}}</li>
+{{/if}}
+{{outlet}}

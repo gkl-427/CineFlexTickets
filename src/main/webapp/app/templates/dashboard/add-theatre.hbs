@@ -1,0 +1,54 @@
+{{#if isAdmin}}
+<div class="centre" style="margin-top:18%;">
+    <div class="redirect-route" style="margin-right:-60%;">
+    <i class="fa fasfa-arrow-left" style="margin-left: 90%;
+    font-family:
+    'Courier New', Courier, monospace;
+    font-size:22px;
+    color:rgb(0, 123, 255);
+    text-decoration:none">
+        {{#link-to 'dashboard.listalltheatres' class="no-underline"}}BACK{{/link-to}}
+    </i>
+</div>
+    <form autocomplete="off" {{action 'sendRecord' on='submit' }}>
+        <div class="form-field-group">
+            <label for="theatrename">THEATRE NAME</label>
+            <div class="form-field-values">
+                {{input required=true id="theatrename" type="text" value=theatrename }}
+            </div>
+        </div>
+        <div class="form-field-group">
+            <label for="theatrecity">THEATRE CITY</label>
+            <div class="form-field-values">
+                {{input required=true id="theatrecity" type="text" value=theatrecity }}
+            </div>
+        </div>
+        <div class="form-field-group">
+            <label for="features">FEATURES</label>
+            <div class="form-field-values">
+                {{input required=true id="features" type="text" value=features }}
+            </div>
+        </div>
+
+        <div class="form-field-group">
+            <label for="manager">MANAGER</label>
+            <div class="form-field-values">
+                <select required=true onchange={{action "selectmanager" value="target.value" }} class={{if
+                    selectmanager "selected" "" }} style="font-size: 16px;font-family:'Courier New', Courier, monospace;margin-top:15px;
+                    width:100%;height:35px">
+                    {{#each model as |user|}}
+                    <option value={{user.userid}}>
+                        {{user.firstname}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <button class="button" type="submit">ADD THEATRE</button>
+    </form>
+</div>
+{{else}}
+<li class="dashboard-not-found"> OOPS! SOMETHING WENT WRONG</li>
+<li class="header-list" style="font-family: 'Courier New', Courier, monospace;margin-top:10%;margin-left:52%">{{#link-to
+    'application' class="no-underline"}}GO HOME{{/link-to}}</li>
+{{/if}}
+{{outlet}}

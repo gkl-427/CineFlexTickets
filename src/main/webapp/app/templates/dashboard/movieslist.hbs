@@ -1,0 +1,37 @@
+{{#if isManager}}
+<div class="movie-container" style="margin-left: 13%; margin-top:5%">
+     <div class="redirect-route">
+            <i class="fas fsa-plus" style="margin-left: 90%;
+    font-family:
+    'Courier New', Courier, monospace;
+    font-size:22px;
+    color:rgb(0, 123, 255)">
+        {{#link-to 'dashboard.add-movie' class="no-underline"}}+ADD{{/link-to}}
+        </i>    
+    </div>
+   
+
+    <ul>
+        {{#each model as |movie|}}
+        <div class="movie-box" style="margin-left:15px;">
+            <li>
+                <h3 style="color: rgb(0, 123, 255);">{{movie.moviename}}</h3>
+            </li>
+            <p>Description:</p>
+            <li>{{movie.description}}</li>
+            <p>Casting:</p>
+            <li>{{movie.casting}}</li>
+            <p>Language:</p>
+            <li>{{movie.language}}</li>
+            <p>Genre:</p>
+            <li>{{movie.genre}}</li>
+        </div>
+        {{/each}}
+    </ul>
+</div>
+{{else}}
+<li class="dashboard-not-found"> OOPS! SOMETHING WENT WRONG</li>
+<li class="header-list" style="font-family: 'Courier New', Courier, monospace;margin-top:10%;margin-left:52%">{{#link-to
+    'application' class="no-underline"}}GO HOME{{/link-to}}</li>
+{{/if}}
+{{outlet}}

@@ -1,0 +1,62 @@
+{{#if isManager}}
+<div class="centre" style="margin-right:-14%;margin-top:13%">
+    <form autocomplete="off" {{action 'sendRecord' on='submit' }}>
+        <div class="form-field-group">
+            <label for="moviename">MOVIE NAME</label>
+            <div class="form-field-values">
+                {{input required=true id="moviename" type="text" value=moviename escape-attribute=false}}
+            </div>
+        </div>
+        <div class="form-field-group">
+            <label for="lastname">DESCRIPTION NAME</label>
+            <div class="form-field-values">
+                {{input required=true id="description" type="text" value=description escape-attribute=false}}
+            </div>
+        </div>
+        <div class="form-field-group">
+            <label for="casting">CASTING</label>
+            <div class="form-field-values">
+                {{input required=true id="casting" type="text" value=casting escape-attribute=false}}
+            </div>
+        </div>
+        <div class="form-field-group">
+            <label for="language">LANGUAGE</label>
+            <div class="form-field-values">
+                <select required=true onchange={{action "selectLanguage" value="target.value" }} class={{if
+                    selectedLanguage "selected" "" }}
+                    style="font-size: 16px;font-family:'Courier New', Courier, monospace;margin-top:15px">
+                    {{#each availableLanguages as |language|}}
+                    <option value={{language.name}}>
+                        {{language.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-field-group">
+            <label for="genre">GENRE</label>
+            <div class="form-field-values">
+                {{input required=true type="text" id="genre" value=genre escape-attribute=false}}
+            </div>
+        </div>
+        <div class="form-field-group">
+            <label for="">MOVIEDATE</label>
+            <div class="form-field-vales">
+                <div class="form-field-values">
+                    <input type="date" id="datepicker" value={{currentDate}} onchange={{action "updateDate"
+                        value="target.value" }}
+                        style="font-size:16px;font-family:'Courier New', Courier, monospace;margin-top:15px">
+                </div>
+            </div>
+        </div>
+        <br>
+        <button class="button" type="submit">MOVIESNOW</button>
+    </form>
+</div>
+{{else}} 
+ <div class="not-found">
+   
+</div>
+<li class="header-list" style="font-family: 'Courier New', Courier, monospace;margin-top:10%;margin-left:52%">{{#link-to 'application'  class="no-underline"}}GO HOME{{/link-to}}</li>
+{{/if}}
+{{outlet}}
